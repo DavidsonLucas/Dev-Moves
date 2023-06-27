@@ -10,6 +10,13 @@ export const Container = styled.div`
         border-radius:30px;
         width: 200px;
         height: 100%;
+        &:hover{
+        transform:scale(1.1);
+        margin: 5px;
+    }
+    &:active{
+        opacity: .1;
+    }
     }
 
     h3{

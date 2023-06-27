@@ -11,7 +11,7 @@ const Button = ({ children, red , ...rest}) => {
   return (
     <>
      {red ? (
-       <Link to="/detalhe"> <c.ButtonRed {...rest}>{children}</c.ButtonRed></Link>
+        <c.ButtonRed {...rest}>{children}</c.ButtonRed>
       ) : (
         <c.ButtonWathi {...rest} >{children}</c.ButtonWathi>
       )}

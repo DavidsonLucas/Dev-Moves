@@ -14,7 +14,7 @@ const Router = () => {
           <Route path="/" exact element={<Home />} />
           <Route path="/filmes" element={<Movies />} />
           <Route path="/series" element={<Series />} />
-          <Route path="/detalhe" element={<Detalhe/>}/> 
+          <Route path="/detalhe/:id" element={<Detalhe/>}/> 
         </Route>
       </Routes>
     </div>

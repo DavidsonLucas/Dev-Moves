@@ -15,12 +15,18 @@ export const  Header = styled.header`
 
       img{
             width: 25%;
+
+            @media (max-width:1000px){
+                  width: 10%;
+            }
       }
 `
 
 export const Ul = styled.ul`
       display: flex;
-      
+    @media (max-width: 850px) {
+            display: none;
+      }
      
 `
 export const Li = styled.li`
@@ -32,6 +38,7 @@ export const Li = styled.li`
          font-size:22px ;
          color:white;
         
+     
         }
             &::after{
                   content: '';
@@ -48,5 +55,7 @@ export const Li = styled.li`
             &:hover::after{
                   width: 100%;
             }
+
+       
            
 `

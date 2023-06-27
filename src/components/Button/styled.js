@@ -9,13 +9,23 @@ const buttonstyle = css`
     cursor: pointer;
     font-size: 20px;
     font-weight: 700;
-
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         color: #ff0000;
         background: #FFFFFF;
 
     }
 
+    @media (max-width:850px){
+       font-size :10px ;
+       min-width: 60%;
+       height: 30px;
+       font-weight: 400;
+       
+    }
 `
 
 export const ButtonWathi = styled.button`
@@ -32,5 +42,7 @@ export const ButtonRed = styled.button`
         background: #ff0000;
         color: #ffffff;
     }
+
+    
 `
 

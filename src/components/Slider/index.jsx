@@ -6,7 +6,6 @@ import Card from '../Card'
 
 const Slider = ({ info, title }) => {
 
-  console.log(info, title)
 
   return (
     <>
@@ -18,7 +17,7 @@ const Slider = ({ info, title }) => {
               <Card item = {item}/>
             </SwiperSlide>
           ))}
-
+  
         </Swiper>
       </c.Container>
     </>

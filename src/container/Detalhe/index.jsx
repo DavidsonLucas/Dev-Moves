@@ -1,59 +1,85 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import api from '../../services/api'
-import Button_Menor from '../../components/Button-Menor'
-import Home from '../Home'
+import { getCredit, getDetali, getMovieVideo, getSimilar } from '../../services/getData'
+import { useParams } from 'react-router-dom'
 import * as c from './styled'
-import Quadrado from '../../components/Qadra-Dos-Altores'
+import { getimages } from '../../utils/getImages'
+import SpanGeneres from '../../components/SpanGeneres'
+import Credtis from '../../components/Credtis'
+import { getVideos } from '../../utils/getVideos'
+import Slider from '../../components/Slider'
+
 
 const Detalhe = () => {
-    const [movie, setMovie] = useState()
-    useEffect(() => {
-        async function getMoveis() {
-            const {
-                data: { results }
-            } = await api.get('/movie/popular')
+  const { id } = useParams()
+  const [movieDetali, setMovieDetali] = useState()
+  const [movieVIdeos, setMovieVideos] = useState()
+  const [movieSimilar, setMovieSimilar] = useState()
+  const [movieCredit, setMovieCredit] = useState()
 
-            setMovie(results[0])
+  useEffect(() => {
 
-        }
-        getMoveis()
-    }, [])
+    async function getAllData() {
+      Promise.all([
+        getDetali(id),
+        getMovieVideo(id),
+        getCredit(id),
+        getSimilar(id),
 
-    return (
+      ])
+        .then(([movie, movieVideos, movieCredit, movieSimilar,]) => {
+          setMovieDetali(movie)
+          setMovieVideos(movieVideos)
+          setMovieCredit(movieCredit)
+          setMovieSimilar(movieSimilar)
+
+        })
+        .catch((error) => console.error(error))
+
+    }
+    getAllData()
+  }, [])
+
+  return (
+    <>
+      {movieDetali && (
         <>
-            {movie && (
-                <>
-                    <c.Background imagem={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}> </c.Background>
+          <c.Background imagem={getimages(movieDetali.backdrop_path)} />
+          <c.Container>
+            <c.Couver>
+              <img src={getimages(movieDetali.poster_path)} alt="" />
+            </c.Couver>
+            <c.Info>
+              <h2>{movieDetali.title}</h2>
+              <SpanGeneres generes={movieDetali.genres} />
+              <p>{movieDetali.overview}</p>
+              <div>
+                <Credtis credtis={movieCredit} />
+              </div>
+            </c.Info>
+          </c.Container>
+          <c.ContainerMovies>
+            {movieVIdeos &&
+              movieVIdeos.map((videos) => (
+                <div key={videos.id}>
+                  <h4>{videos.name}</h4>
 
-                    <c.Background0>
-                        <c.Container >
-                            <c.Publi><img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="" /></c.Publi>
-                            <c.Info>
-                                <h1>{movie.title}</h1>
-                                <c.Info_Button>
-                                    <Button_Menor>iqwgdq</Button_Menor>
-                                    <Button_Menor>ad</Button_Menor>
-                                    <Button_Menor>jkbad</Button_Menor>
-                                    <Button_Menor>kbd</Button_Menor>
-                                </c.Info_Button>
-                                <p>{movie.overview} </p>
-                                <c.Info_Button>
-                                    <Quadrado>asks</Quadrado>
-                                    <Quadrado>kasd</Quadrado>
-                                    <Quadrado>nkas</Quadrado>
-                                    <Quadrado>knas</Quadrado>
-                                </c.Info_Button>
-                            </c.Info>
-
-                        </c.Container>
-                    </c.Background0>
-                </>
-            )}
+                  <iframe src={getVideos(videos.key)}
+                    title='youtube Videos Player'
+                    height='500px'
+                    width='100%'
+                  >
+                  </iframe>
+                </div>
+              ))}
+          </c.ContainerMovies>
+    {movieSimilar && <Slider info={movieSimilar} title={'filmes similares'}/>}
 
         </>
+      )}
+    </>
 
-    )
+  )
 }
 
 export default Detalhe

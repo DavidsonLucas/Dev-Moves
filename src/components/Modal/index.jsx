@@ -1,19 +1,14 @@
 import React from 'react'
 import * as c from './styled'
 import { useEffect, useState } from 'react'
-import Button from '../Button'
-import api from '../../services/api'
+import {  getMovieVideos } from '../../services/getData'
+import { getVideos } from '../../utils/getVideos'
 
 const Modal = ({ movieId, setShwoModal }) => {
     const [movie, setMovie] = useState()
     useEffect(() => {
         async function getMoveis() {
-            const {
-                data: { results }
-            } = await api.get(`/movie/${movieId}/videos`)
-
-            setMovie(results[0])
-            console.log(results[0])
+         setMovie(await getMovieVideos(movieId))
         }
         getMoveis()
       
@@ -31,7 +26,7 @@ const Modal = ({ movieId, setShwoModal }) => {
                 
                     <c.Modal >
                         <c.Fechar onClick={flec}/>
-                        <iframe src={`https://www.youtube.com/embed/${movie.key}`}
+                        <iframe src={getVideos( movie.key)}
                         title='youtube Videos Player'
                         height='500px'
                         width='100%' 

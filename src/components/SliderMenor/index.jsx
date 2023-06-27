@@ -6,7 +6,6 @@ import CardMenor from '../CardMenor'
 
 const SliderMenor = ({ info, title }) => {
 
-  console.log(info, title)
 
   return (
     <>

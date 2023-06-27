@@ -16,21 +16,22 @@ const Global = createGlobalStyle`
        overflow-x: hidden;
        overflow-y: hidden;
 
-       &:hover{
+       
         overflow-y: auto;
    
        &::-webkit-scrollbar {
-           width:2px;            /* width of the entire scrollbar */
+           width:5px;            /* width of the entire scrollbar */
         }
         &::-webkit-scrollbar-track {
-          background: orange;        /* color of the tracking area */
+          background:black;        /* color of the tracking area */
         }
 
         &::-webkit-scrollbar-thumb {
-        background-color: blue;    /* color of the scroll thumb */
-        border-radius: 10px;       /* roundness of the scroll thumb */
+        background-color: #e0e0e0;    /* color of the scroll thumb */
+        border-radius: 30px;    
+        height:40px;   /* roundness of the scroll thumb */
         }   
-    } 
+    
         li{
             list-style: none;
         }
