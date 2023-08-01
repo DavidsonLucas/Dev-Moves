@@ -49,6 +49,10 @@ export const Container = styled.div`
     height: 100%;
     max-width: 1500px;
     margin-top: -100px;
+
+    @media (max-width:850px){
+        flex-direction: column;
+    }
 `
 
 export const Couver = styled.div`
@@ -63,6 +67,14 @@ export const Couver = styled.div`
         border-radius: 30px;
         box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
         animation: ${scale} 0.5s linear;
+
+      
+    }
+
+    @media (max-width:850px){
+       img{
+        width: 372px;
+       }
     }
 `
 export const  Info = styled.div`
@@ -82,6 +94,12 @@ export const  Info = styled.div`
     p{
         font-weight: 700;
         margin: 20px 0 30px 0;
+    }
+
+    @media (max-width:850px){
+        p{
+            width:314px;
+        }
     }
 `
 

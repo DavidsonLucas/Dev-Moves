@@ -9,7 +9,7 @@ export const Container = styled.div`
    
     img{
         border-radius:30px;
-        width: 250px;
+        width: 200px;
         height: 100%;
         margin-left: 17px;
         &:hover{
@@ -27,4 +27,5 @@ export const Container = styled.div`
     h3{
         color: #ffffff;
     }
+   
 `

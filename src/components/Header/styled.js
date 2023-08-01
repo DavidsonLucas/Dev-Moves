@@ -17,7 +17,7 @@ export const  Header = styled.header`
             width: 25%;
 
             @media (max-width:1000px){
-                  width: 10%;
+                  width: 26%;
             }
       }
 `

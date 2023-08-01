@@ -8,11 +8,14 @@ export const Container = styled.div`
     gap:10px;
     img{
         border-radius:30px;
-        width: 200px;
+        width: 160px;
         height: 100%;
         &:hover{
         transform:scale(1.1);
         margin: 5px;
+    }
+    @media (max-width:850px){
+        width: 150px;
     }
     &:active{
         opacity: .1;

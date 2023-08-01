@@ -56,6 +56,11 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
    }
+   
+   @media (max-width:850px){
+   max-width: 50px;
+    
+   }
 `
 export const Info = styled.section`
     width: 50%;
@@ -103,13 +108,13 @@ export const Info = styled.section`
             min-width:240px
         }
         p{
-            min-width:240px;
+            min-width:300px;
             font-size:12px;
             margin-top: 12px;
         }
 
         #lind{
-            margin-left: 90px;
+           margin-left:20px;
         }
     }
 
@@ -120,7 +125,8 @@ export const MainButton = styled.div`
         margin-top:30px;
 
         @media (max-width: 850px){
-        margin-top:-10px;
+            margin-left: -60px;
+            margin-top: -4px;
 
         }
 `
@@ -136,7 +142,7 @@ export const Publi = styled.section`
         box-shadow: rgba(100, 100, 111, 0.23) 0px 7px 29px 0px;
 
         @media (max-Width:850px){
-                width:200px;
+                width:235px;
                
                 
         }
@@ -147,7 +153,8 @@ export const Publi = styled.section`
         }
 
         @media (max-Width:850px){
-            margin-left: -30%;
+            margin-top: -420px;
+            margin-left: -448%;
             
         }
 `

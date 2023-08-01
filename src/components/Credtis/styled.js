@@ -18,6 +18,13 @@ export const Container = styled.div`
     img{
         width: 200px;
     }
+
+    @media (max-width:850px){
+        img{
+            width: 64px;
+        }
+    }
+
 `
 
 export const Titulo = styled.h4`

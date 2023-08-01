@@ -68,6 +68,7 @@ const Detalhe = () => {
                     title='youtube Videos Player'
                     height='500px'
                     width='100%'
+                  
                   >
                   </iframe>
                 </div>
