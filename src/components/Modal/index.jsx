@@ -30,7 +30,7 @@ const Modal = ({ movieId, setShwoModal }) => {
                         title='youtube Videos Player'
                         height='500px'
                         width='100%' 
-                        SameSite='none'></iframe>
+                        samesite='none'></iframe>
                     </c.Modal>
             
             )}
